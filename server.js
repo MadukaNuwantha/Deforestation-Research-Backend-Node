@@ -6,6 +6,7 @@ const router = express.Router()
 const app = express()
 
 const userRoute = require("./routes/user.route")
+const predictionRoute = require("./routes/prediction.route")
 
 const cors = require('cors')
 
@@ -24,6 +25,7 @@ connection.once('open', () => {
 })
 
 router.use("/user", userRoute)
+router.use("/prediction", predictionRoute)
 
 router.use("/ping", (req, res) => {
   res.status(200)
@@ -32,6 +34,8 @@ router.use("/ping", (req, res) => {
     result: "pong!"
   })
 })
+
+router.use("/predictions", express.static('./public/predictions'));
 
 app.use("/api", router)
 
