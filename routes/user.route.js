@@ -8,7 +8,7 @@ router.route("/").post(controller.create)
 
 router.route("/login").post(controller.login)
 
-router.route("/auth").post(authentication, controller.auth)
+router.route("/auth").get(authentication, controller.auth)
 
 router.route("/").put(authentication, controller.update)
 
